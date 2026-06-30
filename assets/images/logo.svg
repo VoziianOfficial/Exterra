@@ -1,0 +1,40 @@
+<svg width="360" height="260" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="exterraLogoTitle exterraLogoDesc">
+  <title id="exterraLogoTitle">Exterra logo</title>
+  <desc id="exterraLogoDesc">Tall house logo with interior siding blocks for Exterra in the brand color palette.</desc>
+
+  <path
+    d="M46 102L180 24L314 102"
+    stroke="#F7F6F2"
+    stroke-width="16"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+
+  <path
+    d="M250 42H282V78L250 55V42Z"
+    fill="#FF4F2E"
+    stroke="#F7F6F2"
+    stroke-width="8"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M66 120L180 52L294 120V222H66V120Z"
+    fill="#141414"
+    stroke="#F7F6F2"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+
+  <rect x="108" y="188" width="56" height="16" fill="#F7F6F2" stroke="#F7F6F2" stroke-width="5"/>
+  <rect x="176" y="188" width="56" height="16" fill="#E7E7E4" stroke="#F7F6F2" stroke-width="5"/>
+  <rect x="244" y="188" width="24" height="16" fill="#FF4F2E" stroke="#F7F6F2" stroke-width="5"/>
+
+  <rect x="142" y="160" width="56" height="16" fill="#F2D8D3" stroke="#F7F6F2" stroke-width="5"/>
+  <rect x="210" y="160" width="56" height="16" fill="#F7F6F2" stroke="#F7F6F2" stroke-width="5"/>
+
+  <rect x="176" y="132" width="56" height="16" fill="#E7E7E4" stroke="#F7F6F2" stroke-width="5"/>
+  <rect x="244" y="132" width="24" height="16" fill="#F2D8D3" stroke="#F7F6F2" stroke-width="5"/>
+
+  <rect x="210" y="104" width="58" height="16" fill="#FF4F2E" stroke="#F7F6F2" stroke-width="5"/>
+</svg>

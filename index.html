@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exterra | Independent Siding Provider Matching Platform</title>
+    <meta name="description"
+        content="Exterra helps homeowners submit siding project details, compare available local provider options, and decide whether to continue with a provider.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Exterra | Independent Siding Provider Matching">
+    <meta property="og:description"
+        content="Compare available local provider options for siding installation, replacement, repair, vinyl, fiber cement, wood, and composite siding requests.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/hero-home.jpg">
+
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div data-site-header></div>
+    <div data-mobile-menu></div>
+
+    <main id="main" class="page">
+        <!-- 1. Shared Hero -->
+        <section data-shared-hero="home" aria-label="Exterra homepage hero"></section>
+
+        <!-- 2. Post-Hero Icon Navigation Strip -->
+        <section data-icon-strip="home" aria-label="Homepage section navigation"></section>
+
+        <!-- 3. Quick Siding Need Navigation -->
+        <section class="quick-needs section section--white" id="quick-needs" aria-labelledby="quick-needs-title">
+            <div class="container-wide">
+                <div class="section-head" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Quick siding need navigation</p>
+                        <h2 id="quick-needs-title">Start with the siding category that fits.</h2>
+                    </div>
+
+                    <p class="lead">
+                        Choose the closest request type, then submit your project details so available participating
+                        providers may review your information.
+                    </p>
+                </div>
+
+                <div class="quick-needs__grid">
+                    <a class="quick-need-card quick-need-card--gray" href="siding-installation.html" data-aos="fade-up">
+                        <span class="quick-need-card__content">
+                            <span class="quick-need-card__label">New exterior request</span>
+                            <strong>Siding Installation</strong>
+                            <span>
+                                Begin a new siding request for exterior coverage, material preferences, trim
+                                discussions, and project planning.
+                            </span>
+                        </span>
+                        <span class="quick-need-card__icon">
+                            <i data-lucide="panel-top" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="quick-need-card quick-need-card--blush" href="siding-replacement.html" data-aos="fade-up"
+                        data-aos-delay="60">
+                        <span class="quick-need-card__content">
+                            <span class="quick-need-card__label">Old or worn siding</span>
+                            <strong>Siding Replacement</strong>
+                            <span>
+                                Compare provider options for replacing aging, outdated, damaged, or worn siding across
+                                larger exterior areas.
+                            </span>
+                        </span>
+                        <span class="quick-need-card__icon">
+                            <i data-lucide="replace" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="quick-need-card quick-need-card--orange" href="siding-repair.html" data-aos="fade-up"
+                        data-aos-delay="120">
+                        <span class="quick-need-card__content">
+                            <span class="quick-need-card__label">Damage or localized issue</span>
+                            <strong>Siding Repair</strong>
+                            <span>
+                                Start a request for loose panels, cracks, storm impact, exterior gaps, or focused siding
+                                concerns.
+                            </span>
+                        </span>
+                        <span class="quick-need-card__icon">
+                            <i data-lucide="wrench" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="quick-need-card quick-need-card--white" href="vinyl-siding.html" data-aos="fade-up">
+                        <span class="quick-need-card__content">
+                            <span class="quick-need-card__label">Material-specific request</span>
+                            <strong>Vinyl Siding</strong>
+                            <span>
+                                Explore vinyl siding provider options for style, color direction, maintenance
+                                expectations, and project scope.
+                            </span>
+                        </span>
+                        <span class="quick-need-card__icon">
+                            <i data-lucide="layers" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="quick-need-card quick-need-card--dark" href="fiber-cement-siding.html" data-aos="fade-up"
+                        data-aos-delay="60">
+                        <span class="quick-need-card__content">
+                            <span class="quick-need-card__label">Durable material interest</span>
+                            <strong>Fiber Cement</strong>
+                            <span>
+                                Submit fiber cement siding preferences and compare providers that may discuss material
+                                and finish details.
+                            </span>
+                        </span>
+                        <span class="quick-need-card__icon">
+                            <i data-lucide="blocks" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="quick-need-card quick-need-card--soft" href="wood-composite-siding.html"
+                        data-aos="fade-up" data-aos-delay="120">
+                        <span class="quick-need-card__content">
+                            <span class="quick-need-card__label">Texture and curb appeal</span>
+                            <strong>Wood &amp; Composite</strong>
+                            <span>
+                                Compare provider options for wood-look, composite, textured, or natural exterior siding
+                                directions.
+                            </span>
+                        </span>
+                        <span class="quick-need-card__icon">
+                            <i data-lucide="tree-pine" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Exterra Platform Overview -->
+        <section class="platform-overview section section--soft" id="platform-overview"
+            aria-labelledby="platform-overview-title">
+            <div class="container">
+                <div class="platform-overview__layout">
+                    <div class="platform-overview__content" data-aos="fade-right">
+                        <p class="section-kicker">Exterra platform overview</p>
+                        <h2 id="platform-overview-title">A clearer way to begin siding requests.</h2>
+
+                        <p>
+                            Exterra helps homeowners organize siding project details and compare available local
+                            provider options without presenting itself as the company performing the siding work.
+                        </p>
+
+                        <ul class="platform-overview__list">
+                            <li>
+                                <i data-lucide="badge-info" aria-hidden="true"></i>
+                                <span>Exterra is an independent siding provider-matching platform.</span>
+                            </li>
+                            <li>
+                                <i data-lucide="ban" aria-hidden="true"></i>
+                                <span>Exterra is not a siding contractor, installer, repair company, manufacturer, or
+                                    retailer.</span>
+                            </li>
+                            <li>
+                                <i data-lucide="file-pen-line" aria-hidden="true"></i>
+                                <span>Homeowners submit project details through a structured request path.</span>
+                            </li>
+                            <li>
+                                <i data-lucide="list-checks" aria-hidden="true"></i>
+                                <span>Users can compare available local provider options before deciding whether to
+                                    continue.</span>
+                            </li>
+                        </ul>
+
+                        <div class="btn-row">
+                            <a class="btn btn--orange" href="contact.html">
+                                <span>Start Your Request</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn--gray" href="about.html">
+                                <span>About Exterra</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="platform-overview__photo image-frame aspect-square" data-aos="fade-left">
+                        <img src="assets/images/about-1.jpg" alt="Modern home exterior siding detail" width="720"
+                            height="720" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Popular Siding Categories -->
+        <section class="popular-categories section section--white" id="popular-categories"
+            aria-labelledby="popular-categories-title">
+            <div class="container-wide">
+                <div class="section-head section-head--center" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Popular siding categories</p>
+                        <h2 id="popular-categories-title">Browse six siding request paths.</h2>
+                    </div>
+                </div>
+
+                <div class="popular-categories__rows">
+                    <article class="category-row" data-aos="fade-up">
+                        <a class="category-row__photo image-frame" href="siding-installation.html"
+                            aria-label="View siding installation">
+                            <img src="assets/images/service-1.jpg"
+                                alt="Home exterior prepared for siding installation request" width="760" height="520"
+                                loading="lazy">
+                        </a>
+
+                        <div class="category-row__content">
+                            <p class="section-kicker">New and planned projects</p>
+                            <h3>Installation and replacement requests.</h3>
+                            <p>
+                                Use Exterra to start a siding request when your project involves new exterior coverage,
+                                larger replacement planning, or provider discussions around material options and project
+                                scope.
+                            </p>
+
+                            <div class="category-row__links">
+                                <a class="line-link" href="siding-installation.html">Siding Installation</a>
+                                <a class="line-link" href="siding-replacement.html">Siding Replacement</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="category-row category-row--reverse" data-aos="fade-up">
+                        <a class="category-row__photo image-frame" href="siding-repair.html"
+                            aria-label="View siding repair">
+                            <img src="assets/images/service-3.jpg" alt="Exterior siding area with repair-related detail"
+                                width="760" height="520" loading="lazy">
+                        </a>
+
+                        <div class="category-row__content">
+                            <p class="section-kicker">Focused issue or material direction</p>
+                            <h3>Repair and vinyl siding paths.</h3>
+                            <p>
+                                Repair requests can help organize visible issues, while vinyl siding requests can focus
+                                provider conversations around profile, color direction, maintenance expectations, and
+                                quote scope.
+                            </p>
+
+                            <div class="category-row__links">
+                                <a class="line-link" href="siding-repair.html">Siding Repair</a>
+                                <a class="line-link" href="vinyl-siding.html">Vinyl Siding</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="category-row" data-aos="fade-up">
+                        <a class="category-row__photo image-frame" href="fiber-cement-siding.html"
+                            aria-label="View fiber cement siding">
+                            <img src="assets/images/service-5.jpg"
+                                alt="Exterior siding texture for fiber cement and composite category" width="760"
+                                height="520" loading="lazy">
+                        </a>
+
+                        <div class="category-row__content">
+                            <p class="section-kicker">Material-specific comparison</p>
+                            <h3>Fiber cement, wood, and composite.</h3>
+                            <p>
+                                Material-specific requests help homeowners compare provider-supplied information about
+                                siding appearance, maintenance expectations, exterior style, warranty terms, and
+                                scheduling.
+                            </p>
+
+                            <div class="category-row__links">
+                                <a class="line-link" href="fiber-cement-siding.html">Fiber Cement Siding</a>
+                                <a class="line-link" href="wood-composite-siding.html">Wood &amp; Composite Siding</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. How Exterra Matching Works -->
+        <section class="matching-process section section--gray" id="matching-process"
+            aria-labelledby="matching-process-title">
+            <div class="container-wide">
+                <div class="section-head" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">How Exterra matching works</p>
+                        <h2 id="matching-process-title">Four steps, homeowner controlled.</h2>
+                    </div>
+
+                    <p class="lead">
+                        Exterra helps structure the beginning of the request. Participating providers supply final
+                        information, terms, and availability.
+                    </p>
+                </div>
+
+                <div class="matching-process__steps">
+                    <article class="process-card process-card--one" data-aos="fade-up">
+                        <span class="process-card__number">01</span>
+                        <i data-lucide="file-pen-line" aria-hidden="true"></i>
+                        <h3>Submit project details</h3>
+                        <p>
+                            Share siding needs, property context, location, urgency, material interests, and helpful
+                            notes.
+                        </p>
+                    </article>
+
+                    <article class="process-card process-card--two" data-aos="fade-up" data-aos-delay="70">
+                        <span class="process-card__number">02</span>
+                        <i data-lucide="users-round" aria-hidden="true"></i>
+                        <h3>Review provider options</h3>
+                        <p>
+                            Available participating providers may review the request and contact you with
+                            provider-supplied information.
+                        </p>
+                    </article>
+
+                    <article class="process-card process-card--three" data-aos="fade-up" data-aos-delay="140">
+                        <span class="process-card__number">03</span>
+                        <i data-lucide="list-checks" aria-hidden="true"></i>
+                        <h3>Compare terms</h3>
+                        <p>
+                            Compare quote scope, scheduling, materials, warranty terms, communication, and provider
+                            requirements.
+                        </p>
+                    </article>
+
+                    <article class="process-card process-card--four" data-aos="fade-up" data-aos-delay="210">
+                        <span class="process-card__number">04</span>
+                        <i data-lucide="check-check" aria-hidden="true"></i>
+                        <h3>Choose whether to continue</h3>
+                        <p>
+                            You decide whether a provider-supplied option fits your project before moving forward.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Siding Project Situation Selector -->
+        <section class="situation-selector section section--white" id="situation-selector"
+            aria-labelledby="situation-selector-title" data-situation-selector>
+            <div class="container-wide">
+                <div class="section-head section-head--center" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Siding project situation selector</p>
+                        <h2 id="situation-selector-title">Match the request to the situation.</h2>
+                    </div>
+                </div>
+
+                <div class="situation-selector__top" data-aos="fade-up">
+                    <p>
+                        Select the closest situation below. The guidance card and photos update to help frame the type
+                        of siding request a homeowner may submit through Exterra.
+                    </p>
+
+                    <div class="situation-selector__buttons" role="tablist" aria-label="Siding project situations">
+                        <button class="situation-btn is-active" type="button" data-situation-button="old-siding"
+                            aria-selected="true">
+                            <i data-lucide="history" aria-hidden="true"></i>
+                            <span>Old siding</span>
+                        </button>
+
+                        <button class="situation-btn" type="button" data-situation-button="storm-damage"
+                            aria-selected="false">
+                            <i data-lucide="cloud-lightning" aria-hidden="true"></i>
+                            <span>Storm damage</span>
+                        </button>
+
+                        <button class="situation-btn" type="button" data-situation-button="new-look"
+                            aria-selected="false">
+                            <i data-lucide="sparkles" aria-hidden="true"></i>
+                            <span>New look</span>
+                        </button>
+
+                        <button class="situation-btn" type="button" data-situation-button="material-upgrade"
+                            aria-selected="false">
+                            <i data-lucide="layers" aria-hidden="true"></i>
+                            <span>Material upgrade</span>
+                        </button>
+
+                        <button class="situation-btn" type="button" data-situation-button="maintenance"
+                            aria-selected="false">
+                            <i data-lucide="leaf" aria-hidden="true"></i>
+                            <span>Maintenance</span>
+                        </button>
+                    </div>
+                </div>
+
+                <article class="situation-card" data-situation-card data-aos="fade-up">
+                    <p class="section-kicker" data-situation-kicker>Older exterior materials</p>
+                    <h3 data-situation-title>When siding looks worn, faded, loose, or outdated.</h3>
+                    <p data-situation-text>
+                        A replacement-focused request can help organize details about the age of the exterior, visible
+                        wear, material preferences, removal expectations, trim questions, and timing. Exterra helps
+                        homeowners start with clear information so provider conversations are easier to compare.
+                    </p>
+
+                    <a class="line-link" data-situation-link href="siding-replacement.html">Explore Siding
+                        Replacement</a>
+                </article>
+
+                <div class="situation-selector__photos" data-aos="fade-up">
+                    <div class="image-frame">
+                        <img data-situation-image-one src="assets/images/service-2.jpg"
+                            alt="Siding replacement exterior detail" width="760" height="500" loading="lazy">
+                    </div>
+
+                    <div class="image-frame">
+                        <img data-situation-image-two src="assets/images/about-2.jpg"
+                            alt="Modern home siding comparison detail" width="760" height="500" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. What Homeowners Can Compare -->
+        <section class="compare-section section section--soft" id="compare" aria-label="What homeowners can compare">
+            <div class="container-wide">
+                <div class="compare-section__grid">
+                    <article class="compare-card compare-card--light" data-aos="fade-right">
+                        <i data-lucide="map-pin-check" aria-hidden="true"></i>
+                        <h2>Compare project fit and availability.</h2>
+                        <p>
+                            Homeowners can review provider-supplied information around service area, quote details,
+                            material discussion, project scope, timing, and scheduling availability. Exterra helps
+                            organize the request, while participating providers supply final details.
+                        </p>
+                    </article>
+
+                    <article class="compare-card compare-card--dark" data-aos="fade-left">
+                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                        <h2>Review terms before moving forward.</h2>
+                        <p>
+                            Provider conversations may include warranty terms, licensing and insurance details,
+                            communication expectations, preparation needs, and final agreement terms. Homeowners should
+                            verify provider credentials and decide whether the terms fit.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Materials & Exterior Style Options -->
+        <section class="materials-style section section--white" id="materials" aria-labelledby="materials-title">
+            <div class="container">
+                <div class="materials-style__head" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Materials &amp; exterior style options</p>
+                        <h2 id="materials-title">Use material direction to shape better provider conversations.</h2>
+                    </div>
+
+                    <p>
+                        Exterra does not sell materials or recommend a single provider. The platform helps homeowners
+                        describe siding preferences so provider-supplied options can be easier to compare.
+                    </p>
+                </div>
+
+                <div class="materials-style__statement" data-aos="fade-up">
+                    <p>
+                        The right request can mention material interest, color direction, facade texture, maintenance
+                        expectations, and curb appeal goals before a provider discussion begins.
+                    </p>
+                </div>
+
+                <div class="materials-style__columns">
+                    <div class="materials-list" data-aos="fade-right">
+                        <h3>Materials</h3>
+
+                        <a href="vinyl-siding.html">
+                            <span>Vinyl</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="fiber-cement-siding.html">
+                            <span>Fiber cement</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="wood-composite-siding.html">
+                            <span>Wood / composite</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="all-services.html">
+                            <span>Trim and panels</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="materials-list" data-aos="fade-left">
+                        <h3>Exterior style</h3>
+
+                        <span>
+                            <strong>Color direction</strong>
+                            <small>Discuss visual goals and exterior palette preferences with providers.</small>
+                        </span>
+
+                        <span>
+                            <strong>Maintenance expectations</strong>
+                            <small>Compare provider-supplied information about care, durability, and upkeep.</small>
+                        </span>
+
+                        <span>
+                            <strong>Facade texture</strong>
+                            <small>Use your request to mention smooth, textured, traditional, or modern siding
+                                direction.</small>
+                        </span>
+
+                        <span>
+                            <strong>Curb appeal</strong>
+                            <small>Frame the request around exterior appearance, trim details, and property
+                                goals.</small>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Trust & Transparency Block -->
+        <section class="transparency section section--gray" id="transparency" aria-labelledby="transparency-title">
+            <div class="container-wide">
+                <div class="section-head" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Trust &amp; transparency</p>
+                        <h2 id="transparency-title">Clear platform boundaries from the start.</h2>
+                    </div>
+
+                    <p class="lead">
+                        Exterra helps users begin a request and compare available provider options. It does not replace
+                        homeowner review of provider-supplied terms.
+                    </p>
+                </div>
+
+                <div class="transparency__cards">
+                    <article class="transparency-card" data-aos="fade-up">
+                        <i data-lucide="ban" aria-hidden="true"></i>
+                        <h3>No direct siding work</h3>
+                        <p>Exterra does not perform siding installation, replacement, repair, inspection, manufacturing,
+                            or retail work directly.</p>
+                    </article>
+
+                    <article class="transparency-card" data-aos="fade-up" data-aos-delay="60">
+                        <i data-lucide="badge-dollar-sign" aria-hidden="true"></i>
+                        <h3>No price guarantee</h3>
+                        <p>Final pricing, quote scope, payment terms, and project costs are provided by participating
+                            providers.</p>
+                    </article>
+
+                    <article class="transparency-card" data-aos="fade-up" data-aos-delay="120">
+                        <i data-lucide="calendar-clock" aria-hidden="true"></i>
+                        <h3>No schedule guarantee</h3>
+                        <p>Scheduling, response times, availability, and project timing may vary by provider and
+                            location.</p>
+                    </article>
+
+                    <article class="transparency-card" data-aos="fade-up" data-aos-delay="180">
+                        <i data-lucide="shield-alert" aria-hidden="true"></i>
+                        <h3>No outcome guarantee</h3>
+                        <p>Homeowners should review provider credentials, insurance, licensing, warranties, permits, and
+                            final agreement terms.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="transparency-parallax" data-parallax>
+                <div class="transparency-parallax__bg" data-parallax-layer aria-hidden="true"></div>
+                <div class="transparency-parallax__overlay" aria-hidden="true"></div>
+
+                <div class="container">
+                    <div class="transparency-parallax__content" data-aos="fade-up">
+                        <p class="section-kicker">Provider terms vary</p>
+                        <h2>Compare information before choosing whether to continue.</h2>
+                        <p>
+                            Exterra supports the beginning of the request process. The provider you choose, if any,
+                            supplies final project details, terms, and responsibilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. FAQ -->
+        <section data-faq="common" data-faq-heading="Common Questions" data-faq-image="assets/images/faq.jpg"></section>
+
+        <!-- 12. Global CTA -->
+        <section data-global-cta="home"></section>
+    </main>
+
+    <div data-site-footer></div>
+    <div data-cookie-banner></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/home.js"></script>
+</body>
+
+</html>

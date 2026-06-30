@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Exterra | Start a Siding Request</title>
+    <meta name="description"
+        content="Submit your siding project details through Exterra and compare available local provider options. Submitting a request does not create a service agreement.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Contact Exterra | Start a Siding Request">
+    <meta property="og:description"
+        content="Send siding project details through Exterra, an independent siding provider-matching platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/hero-contact.jpg">
+
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div data-site-header></div>
+    <div data-mobile-menu></div>
+
+    <main id="main" class="page">
+        <!-- 1. Shared Hero -->
+        <section data-shared-hero="contact" aria-label="Contact Exterra hero"></section>
+
+        <!-- 2. Post-Hero Icon Navigation Strip -->
+        <section data-icon-strip="contact" aria-label="Contact page section navigation"></section>
+
+        <!-- 3. Contact Info / Platform Details -->
+        <section class="contact-details section section--white" id="contact-details"
+            aria-labelledby="contact-details-title">
+            <div class="container-wide">
+                <div class="section-head" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Contact info / platform details</p>
+                        <h2 id="contact-details-title">Start with the right contact path.</h2>
+                    </div>
+
+                    <p class="lead">
+                        Exterra helps homeowners submit siding request details and compare available provider options.
+                        Exterra does not perform siding work directly.
+                    </p>
+                </div>
+
+                <div class="contact-details__grid">
+                    <article class="contact-info-card contact-info-card--gray" data-aos="fade-up">
+                        <i data-lucide="phone" aria-hidden="true"></i>
+                        <span>Phone</span>
+                        <h3 data-config="company.phoneDisplay">+1 (800) 555-0142</h3>
+                        <a class="line-link" data-phone-link href="tel:+18005550142">Call Exterra</a>
+                    </article>
+
+                    <article class="contact-info-card contact-info-card--blush" data-aos="fade-up" data-aos-delay="60">
+                        <i data-lucide="mail" aria-hidden="true"></i>
+                        <span>Email</span>
+                        <h3 data-config="company.email">support@exterra.example</h3>
+                        <a class="line-link" data-email-link href="mailto:support@exterra.example">Email Exterra</a>
+                    </article>
+
+                    <article class="contact-info-card contact-info-card--orange" data-aos="fade-up"
+                        data-aos-delay="120">
+                        <i data-lucide="map-pin" aria-hidden="true"></i>
+                        <span>Service area</span>
+                        <h3 data-config="company.serviceArea">Selected local service areas</h3>
+                        <p>Provider availability, response times, and service terms may vary by location.</p>
+                    </article>
+
+                    <article class="contact-info-card contact-info-card--dark" data-aos="fade-up" data-aos-delay="180">
+                        <i data-lucide="badge-info" aria-hidden="true"></i>
+                        <span>Platform note</span>
+                        <h3>Independent matching</h3>
+                        <p>Exterra is not a contractor, installer, repair company, manufacturer, retailer, or direct
+                            service provider.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Request Form Section -->
+        <section class="request-section" id="request-form" aria-labelledby="request-form-title">
+            <div class="request-section__bg" aria-hidden="true"></div>
+            <div class="request-section__overlay" aria-hidden="true"></div>
+
+            <div class="container-wide request-section__inner">
+                <form class="request-form form" action="contact.php" method="POST" data-contact-form
+                    data-aos="fade-right" novalidate>
+                    <div class="request-form__head">
+                        <p class="section-kicker">Request form</p>
+                        <h2 id="request-form-title">Submit siding project details.</h2>
+                        <p>
+                            Share the basics of your siding request. Participating providers may contact you with
+                            provider-supplied information. Submitting this form does not create a service agreement.
+                        </p>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="fullName">Full name</label>
+                        <input class="input" type="text" id="fullName" name="fullName" autocomplete="name" required>
+                    </div>
+
+                    <div class="request-form__split">
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <input class="input" type="email" id="email" name="email" autocomplete="email" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="phone">Phone</label>
+                            <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="service">Service category</label>
+                        <select class="select" id="service" name="service" required>
+                            <option value="">Select a siding category</option>
+                            <option value="Siding Installation">Siding Installation</option>
+                            <option value="Siding Replacement">Siding Replacement</option>
+                            <option value="Siding Repair">Siding Repair</option>
+                            <option value="Vinyl Siding">Vinyl Siding</option>
+                            <option value="Fiber Cement Siding">Fiber Cement Siding</option>
+                            <option value="Wood & Composite Siding">Wood &amp; Composite Siding</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Project details</label>
+                        <textarea class="textarea" id="message" name="message" rows="5"
+                            placeholder="Describe your siding need, property type, location, preferred material, urgency, and any helpful details."
+                            required></textarea>
+                    </div>
+
+                    <input type="hidden" name="sourcePage" value="contact.html" data-source-page>
+                    <input type="hidden" name="formStartedAt" value="" data-form-started-at>
+
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <label class="checkbox" for="privacyConsent">
+                        <input type="checkbox" id="privacyConsent" name="privacyConsent" value="yes" required>
+                        <span>
+                            I agree to the <a href="privacy-policy.html">Privacy Policy</a> and understand that Exterra
+                            is an independent provider-matching platform. Submitting this form does not create a service
+                            agreement.
+                        </span>
+                    </label>
+
+                    <p class="request-form__disclaimer">
+                        Final pricing, scheduling, warranties, licensing, insurance, availability, and service terms are
+                        provided by participating providers.
+                    </p>
+
+                    <div class="form-message" data-form-message role="status" aria-live="polite"></div>
+
+                    <button class="btn btn--orange" type="submit" data-submit-button>
+                        <span>Submit Request</span>
+                        <i data-lucide="send" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <aside class="request-info-card" id="what-happens" data-aos="fade-left"
+                    aria-labelledby="what-happens-title">
+                    <p class="section-kicker">What happens after you submit</p>
+                    <h2 id="what-happens-title">Your request stays homeowner controlled.</h2>
+
+                    <div class="request-info-card__steps">
+                        <div>
+                            <span>01</span>
+                            <h3>Request received</h3>
+                            <p>Your submitted details are received through the Exterra request form.</p>
+                        </div>
+
+                        <div>
+                            <span>02</span>
+                            <h3>Details organized</h3>
+                            <p>The siding category, location, and project notes help frame the request.</p>
+                        </div>
+
+                        <div>
+                            <span>03</span>
+                            <h3>Providers may contact you</h3>
+                            <p>Participating providers may contact you with provider-supplied information.</p>
+                        </div>
+
+                        <div>
+                            <span>04</span>
+                            <h3>You compare options</h3>
+                            <p>You decide whether any provider-supplied terms fit before moving forward.</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="message-tips" id="message-tips">
+                <div class="container-wide">
+                    <div class="message-tips__grid" aria-label="What to include in your message">
+                        <article>
+                            <i data-lucide="home" aria-hidden="true"></i>
+                            <span>Property type</span>
+                        </article>
+
+                        <article>
+                            <i data-lucide="wrench" aria-hidden="true"></i>
+                            <span>Siding issue</span>
+                        </article>
+
+                        <article>
+                            <i data-lucide="layers" aria-hidden="true"></i>
+                            <span>Preferred material</span>
+                        </article>
+
+                        <article>
+                            <i data-lucide="clock" aria-hidden="true"></i>
+                            <span>Urgency</span>
+                        </article>
+
+                        <article>
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Location</span>
+                        </article>
+
+                        <article>
+                            <i data-lucide="image" aria-hidden="true"></i>
+                            <span>Photo availability</span>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Popular Services Swiper -->
+        <section class="contact-services section section--white" id="popular-services"
+            aria-labelledby="popular-services-title">
+            <div class="container-wide">
+                <div class="section-head section-head--center" data-aos="fade-up">
+                    <div>
+                        <p class="section-kicker">Popular services swiper</p>
+                        <h2 id="popular-services-title">Popular siding request categories.</h2>
+                    </div>
+                </div>
+
+                <div class="popular-service-slider" data-popular-slider data-aos="fade-up">
+                    <div class="popular-service-slider__track">
+                        <a class="popular-service-slide is-active" href="siding-installation.html">
+                            <img src="assets/images/service-1.jpg" alt="Siding installation category" width="1400"
+                                height="620" loading="lazy">
+                            <span class="popular-service-slide__overlay">
+                                <strong>Siding Installation</strong>
+                                <small>Start a request for new exterior siding and compare available provider
+                                    options.</small>
+                            </span>
+                        </a>
+
+                        <a class="popular-service-slide" href="siding-replacement.html">
+                            <img src="assets/images/service-2.jpg" alt="Siding replacement category" width="1400"
+                                height="620" loading="lazy">
+                            <span class="popular-service-slide__overlay">
+                                <strong>Siding Replacement</strong>
+                                <small>Compare provider options for aging, worn, damaged, or outdated siding.</small>
+                            </span>
+                        </a>
+
+                        <a class="popular-service-slide" href="siding-repair.html">
+                            <img src="assets/images/service-3.jpg" alt="Siding repair category" width="1400"
+                                height="620" loading="lazy">
+                            <span class="popular-service-slide__overlay">
+                                <strong>Siding Repair</strong>
+                                <small>Organize details about loose panels, storm impact, cracks, gaps, or exterior
+                                    wear.</small>
+                            </span>
+                        </a>
+
+                        <a class="popular-service-slide" href="vinyl-siding.html">
+                            <img src="assets/images/service-4.jpg" alt="Vinyl siding category" width="1400" height="620"
+                                loading="lazy">
+                            <span class="popular-service-slide__overlay">
+                                <strong>Vinyl Siding</strong>
+                                <small>Explore vinyl siding provider options and material-specific request
+                                    details.</small>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="popular-service-slider__controls">
+                        <button type="button" data-popular-prev aria-label="Previous popular service">
+                            <i data-lucide="arrow-left" aria-hidden="true"></i>
+                        </button>
+
+                        <button type="button" data-popular-next aria-label="Next popular service">
+                            <i data-lucide="arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ -->
+        <section data-faq="request" data-faq-heading="Request Questions" data-faq-image="assets/images/faq.jpg">
+        </section>
+
+        <!-- 7. Global CTA -->
+        <section data-global-cta="contact"></section>
+    </main>
+
+    <div data-site-footer></div>
+    <div data-cookie-banner></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
+
+</html>
