@@ -730,3 +730,192 @@
         line-height: 1.45;
     }
 }
+
+/* =========================
+   Service Pages: Count Strip
+========================= */
+
+.service-count-strip {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-off-white);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.service-count-strip__inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 76px);
+    align-items: center;
+}
+
+.service-count-strip__intro h2 {
+    max-width: 520px;
+    font-size: clamp(1.55rem, 2.4vw, 2.45rem);
+    line-height: 0.98;
+}
+
+.service-count-strip__stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.service-count-strip__stats span {
+    position: relative;
+    min-height: 158px;
+    display: grid;
+    align-content: end;
+    gap: 14px;
+    padding: 24px 18px 26px;
+    border-right: 1px solid var(--border-light);
+    overflow: hidden;
+    transition:
+        color var(--ease),
+        background-color var(--ease);
+}
+
+.service-count-strip__stats span:last-child {
+    border-right: 0;
+}
+
+.service-count-strip__stats span::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    height: 2px;
+    background: var(--color-orange);
+    transform: scaleX(0.22);
+    transform-origin: left;
+    transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-count-strip__stats span:hover {
+    background: var(--color-white);
+}
+
+.service-count-strip__stats span:hover::after {
+    transform: scaleX(1);
+}
+
+.service-count-strip__stats strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(3.2rem, 6vw, 6.6rem);
+    line-height: 0.78;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: var(--color-orange);
+}
+
+.service-count-strip__stats small {
+    display: block;
+    max-width: 170px;
+    padding-bottom: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    line-height: 1.25;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+/* responsive */
+@media (max-width: 1080px) {
+    .service-count-strip__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .service-count-strip__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-count-strip__stats span:nth-child(2) {
+        border-right: 0;
+    }
+
+    .service-count-strip__stats span:nth-child(1),
+    .service-count-strip__stats span:nth-child(2) {
+        border-bottom: 1px solid var(--border-light);
+    }
+}
+
+@media (max-width: 560px) {
+    .service-count-strip__stats {
+        grid-template-columns: 1fr;
+    }
+
+    .service-count-strip__stats span {
+        min-height: 132px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .service-count-strip__stats span:last-child {
+        border-bottom: 0;
+    }
+
+    .service-count-strip__stats strong {
+        font-size: clamp(3rem, 16vw, 4.5rem);
+    }
+}
+
+/* =========================
+   Service Count Strip Smoothness
+========================= */
+
+.service-count-strip__stats span {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 820ms cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 620ms ease,
+        color 420ms ease;
+}
+
+.service-count-strip__stats span.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-count-strip__stats strong {
+    transform-origin: left bottom;
+    transition:
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 420ms ease;
+}
+
+.service-count-strip__stats span.is-counting strong {
+    transform: translateY(-3px) scale(1.035);
+}
+
+.service-count-strip__stats span.is-counted strong {
+    transform: translateY(0) scale(1);
+}
+
+.service-count-strip__stats small {
+    opacity: 0.78;
+    transform: translateY(4px);
+    transition:
+        opacity 620ms ease,
+        transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-count-strip__stats span.is-visible small {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-count-strip__stats span::after {
+    transition: transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-count-strip__stats span:hover {
+    transform: translateY(-3px);
+}

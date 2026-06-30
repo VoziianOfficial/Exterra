@@ -112,6 +112,86 @@
         }
     };
 
+    (function () {
+        const initServiceCounters = () => {
+            const counters = Array.from(document.querySelectorAll('[data-service-counter]'));
+            if (!counters.length) return;
+
+            const formatNumber = (value) => String(value).padStart(2, '0');
+
+            const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+            const animateCounter = (counter, index = 0) => {
+                if (counter.dataset.counted === 'true') return;
+
+                const statItem = counter.closest('.service-count-strip__stats span');
+                const target = Number(counter.dataset.counterValue || 0);
+                const duration = 1450;
+                const delay = index * 150;
+
+                counter.dataset.counted = 'true';
+                counter.textContent = '00';
+
+                window.setTimeout(() => {
+                    statItem?.classList.add('is-visible', 'is-counting');
+
+                    const startTime = performance.now();
+
+                    const tick = (now) => {
+                        const progress = Math.min((now - startTime) / duration, 1);
+                        const eased = easeOutQuart(progress);
+                        const current = Math.round(target * eased);
+
+                        counter.textContent = formatNumber(current);
+
+                        if (progress < 1) {
+                            requestAnimationFrame(tick);
+                        } else {
+                            counter.textContent = formatNumber(target);
+
+                            window.setTimeout(() => {
+                                statItem?.classList.remove('is-counting');
+                                statItem?.classList.add('is-counted');
+                            }, 120);
+                        }
+                    };
+
+                    requestAnimationFrame(tick);
+                }, delay);
+            };
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+
+                        const visibleCounters = counters.filter((counter) => counter.dataset.counted !== 'true');
+
+                        visibleCounters.forEach((counter, index) => {
+                            animateCounter(counter, index);
+                        });
+
+                        observer.disconnect();
+                    });
+                },
+                {
+                    threshold: 0.28
+                }
+            );
+
+            counters.forEach((counter) => {
+                counter.textContent = '00';
+                observer.observe(counter);
+            });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initServiceCounters);
+        } else {
+            initServiceCounters();
+        }
+    })();
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initServices);
     } else {
