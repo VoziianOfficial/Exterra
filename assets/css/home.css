@@ -1060,3 +1060,34 @@
     }
 }
 
+/* =========================
+   Home Hero Heading Fix
+========================= */
+
+.shared-hero[data-shared-hero="home"] h1 {
+    max-width: none;
+    width: 100%;
+    white-space: nowrap;
+    text-wrap: nowrap;
+    font-size: clamp(3rem, 4.7vw, 4.55rem);
+    line-height: 0.9;
+    letter-spacing: 0.018em;
+}
+
+.shared-hero[data-shared-hero="home"] .shared-hero__content {
+    width: min(100%, 760px);
+    max-width: 760px;
+}
+
+@media (max-width: 760px) {
+    .shared-hero[data-shared-hero="home"] h1 {
+        white-space: normal;
+        text-wrap: balance;
+        font-size: clamp(2.15rem, 10vw, 3rem);
+    }
+
+    .shared-hero[data-shared-hero="home"] .shared-hero__content {
+        width: min(100%, 680px);
+        max-width: 680px;
+    }
+}
