@@ -524,15 +524,16 @@
 
 .homeowner-checklist__layout {
     display: grid;
-    grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+    grid-template-columns: minmax(320px, 0.54fr) minmax(0, 1fr);
     gap: clamp(32px, 6vw, 82px);
     align-items: center;
 }
 
 .homeowner-checklist__photo {
-    width: min(100%, 360px);
+    width: min(100%, 500px);
     aspect-ratio: 1 / 1;
-    justify-self: center;
+    justify-self: start;
+    transform: translateX(clamp(-48px, -4vw, -18px));
     overflow: hidden;
     border-radius: 50%;
     border: 12px solid var(--color-white);
@@ -569,19 +570,25 @@
 .checklist-lines {
     width: 100%;
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(18px, 3vw, 34px);
     margin: 4px 0 10px;
-    border-top: 1px solid var(--border-light);
 }
 
 .checklist-lines span {
-    min-height: 62px;
+    min-height: 0;
+    padding: 18px 0;
     display: grid;
     grid-template-columns: 28px 1fr;
     gap: 14px;
     align-items: center;
-    border-bottom: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
     color: var(--text-main);
     transition: color var(--ease), padding-left var(--ease);
+}
+
+.checklist-lines span:nth-last-child(-n+2) {
+    border-bottom: 1px solid var(--border-light);
 }
 
 .checklist-lines span:hover {
@@ -648,7 +655,9 @@
     }
 
     .homeowner-checklist__photo {
-        width: min(100%, 300px);
+        width: min(100%, 360px);
+        justify-self: center;
+        transform: none;
     }
 }
 
@@ -657,6 +666,18 @@
     .platform-helps__steps,
     .not-claim-grid {
         grid-template-columns: 1fr;
+    }
+
+    .checklist-lines {
+        grid-template-columns: 1fr;
+    }
+
+    .checklist-lines span:nth-last-child(-n+2) {
+        border-bottom: 0;
+    }
+
+    .checklist-lines span:last-child {
+        border-bottom: 1px solid var(--border-light);
     }
 
     .help-step,
