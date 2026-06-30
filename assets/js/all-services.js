@@ -305,7 +305,7 @@
             const data = flowData[key];
             if (!data) return;
 
-            /* если нажали на уже открытую строку — закрываем */
+            
             if (key === activeKey) {
                 closeAll();
                 return;

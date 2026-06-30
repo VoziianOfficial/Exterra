@@ -1,6 +1,4 @@
-/* =========================
-   Legal Pages
-========================= */
+
 
 .legal-hero {
     position: relative;
@@ -268,9 +266,7 @@
     color: var(--color-orange);
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 980px) {
     .legal-content__layout {

@@ -1,6 +1,4 @@
-/* =========================
-   Service Pages: Overview
-========================= */
+
 
 .service-overview {
     overflow: hidden;
@@ -53,9 +51,7 @@
     min-height: 440px;
 }
 
-/* =========================
-   Service Pages: Matching Path
-========================= */
+
 
 .service-matching {
     overflow: hidden;
@@ -237,9 +233,7 @@
     color: var(--text-muted);
 }
 
-/* =========================
-   Service Pages: Provider Discussion
-========================= */
+
 
 .provider-discussion {
     overflow: hidden;
@@ -329,9 +323,7 @@
     background: var(--overlay-photo);
 }
 
-/* =========================
-   Service Pages: Comparison Factors
-========================= */
+
 
 .comparison-factors {
     overflow: hidden;
@@ -392,9 +384,7 @@
     line-height: 1.5;
 }
 
-/* =========================
-   Service Pages: Popular Services Slider
-========================= */
+
 
 .related-services {
     overflow: hidden;
@@ -531,9 +521,7 @@
     height: 20px;
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 1180px) {
     .service-matching__steps {
@@ -633,11 +621,9 @@
     }
 }
 
-/* =========================
-   Comparison Factors Fix
-========================= */
 
-/* строка списка — только прямой span внутри .comparison-list */
+
+
 .comparison-list>span {
     min-height: auto;
     display: grid;
@@ -652,7 +638,7 @@
         padding-left var(--ease);
 }
 
-/* внутренний span с текстом — больше НЕ grid */
+
 .comparison-list>span>span {
     min-height: 0;
     display: block;
@@ -661,13 +647,13 @@
     color: inherit;
 }
 
-/* убираем hover-съезд у внутреннего span */
+
 .comparison-list>span>span:hover {
     padding-left: 0;
     color: inherit;
 }
 
-/* иконка фиксируется сверху и не лезет на текст */
+
 .comparison-list>span>svg,
 .comparison-list>span>i {
     width: 22px;
@@ -677,7 +663,7 @@
     flex: 0 0 auto;
 }
 
-/* hover только на всю строку */
+
 .comparison-list>span:hover {
     color: var(--color-orange);
     padding-left: 8px;
@@ -706,7 +692,7 @@
     line-height: 1.45;
 }
 
-/* mobile */
+
 @media (max-width: 520px) {
     .comparison-list>span {
         grid-template-columns: 28px minmax(0, 1fr);
@@ -731,9 +717,7 @@
     }
 }
 
-/* =========================
-   Service Pages: Count Strip
-========================= */
+
 
 .service-count-strip {
     position: relative;
@@ -825,7 +809,7 @@
     text-transform: uppercase;
 }
 
-/* responsive */
+
 @media (max-width: 1080px) {
     .service-count-strip__inner {
         grid-template-columns: 1fr;
@@ -865,9 +849,7 @@
     }
 }
 
-/* =========================
-   Service Count Strip Smoothness
-========================= */
+
 
 .service-count-strip__stats span {
     opacity: 0;

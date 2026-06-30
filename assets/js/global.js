@@ -90,9 +90,7 @@
         }
     };
 
-    /* =========================
-       Config Injection
-    ========================= */
+    
 
     const injectConfigValues = () => {
         qsa('[data-config]').forEach((node) => {
@@ -128,9 +126,7 @@
         });
     };
 
-    /* =========================
-       Header
-    ========================= */
+    
 
     const renderHeader = () => {
         const mount = qs('[data-site-header]');
@@ -222,9 +218,7 @@
     `;
     };
 
-    /* =========================
-       Mobile Menu
-    ========================= */
+    
 
     const renderMobileMenu = () => {
         const mount = qs('[data-mobile-menu]');
@@ -350,9 +344,7 @@
         });
     };
 
-    /* =========================
-       Desktop Dropdown
-    ========================= */
+    
 
     const initDropdowns = () => {
         qsa('.dropdown').forEach((dropdown) => {
@@ -399,9 +391,7 @@
         });
     };
 
-    /* =========================
-       Shared Hero
-    ========================= */
+    
 
     const renderSharedHero = () => {
         const mount = qs('[data-shared-hero]');
@@ -473,9 +463,7 @@
     `;
     };
 
-    /* =========================
-       Icon Strip
-    ========================= */
+    
 
     const renderIconStrips = () => {
         qsa('[data-icon-strip]').forEach((mount) => {
@@ -504,9 +492,7 @@
         });
     };
 
-    /* =========================
-       FAQ
-    ========================= */
+    
 
     const getFaqItems = (type, service) => {
         if (type === 'service' && service) {
@@ -645,9 +631,7 @@
         });
     };
 
-    /* =========================
-       Global CTA
-    ========================= */
+    
 
     const renderGlobalCta = () => {
         qsa('[data-global-cta]').forEach((mount) => {
@@ -696,9 +680,7 @@
         });
     };
 
-    /* =========================
-       Footer
-    ========================= */
+    
 
     const renderFooter = () => {
         const mount = qs('[data-site-footer]');
@@ -779,9 +761,7 @@
     `;
     };
 
-    /* =========================
-       Cookie Banner
-    ========================= */
+    
 
     const renderCookieBanner = () => {
         const mount = qs('[data-cookie-banner]');
@@ -823,9 +803,7 @@
         qs('[data-cookie-decline]', mount)?.addEventListener('click', () => close('declined'));
     };
 
-    /* =========================
-       Smooth Anchors
-    ========================= */
+    
 
     const initSmoothAnchors = () => {
         qsa('a[href^="#"]').forEach((link) => {
@@ -851,9 +829,7 @@
         });
     };
 
-    /* =========================
-       Parallax
-    ========================= */
+    
 
     const initParallax = () => {
         const layers = qsa('[data-parallax-layer]');
@@ -890,9 +866,7 @@
         window.addEventListener('resize', update);
     };
 
-    /* =========================
-       AOS
-    ========================= */
+    
 
     const initAOS = () => {
         if (!window.AOS) return;
@@ -909,9 +883,7 @@
         });
     };
 
-    /* =========================
-       Init
-    ========================= */
+    
 
     const init = () => {
         renderHeader();

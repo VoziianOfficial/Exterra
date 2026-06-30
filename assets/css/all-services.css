@@ -1,6 +1,4 @@
-/* =========================
-   All Services: Overview
-========================= */
+
 
 .services-overview {
     overflow: hidden;
@@ -72,9 +70,7 @@
     min-height: 440px;
 }
 
-/* =========================
-   All Services: Project Comparison
-========================= */
+
 
 .project-comparison {
     overflow: hidden;
@@ -155,9 +151,7 @@
     background: var(--color-blush);
 }
 
-/* =========================
-   All Services: Full Services Slider
-========================= */
+
 
 .full-services {
     overflow: hidden;
@@ -317,9 +311,7 @@
     height: 20px;
 }
 
-/* =========================
-   All Services: Service Explorer
-========================= */
+
 
 .service-explorer {
     overflow: hidden;
@@ -431,9 +423,7 @@
     color: var(--text-muted);
 }
 
-/* =========================
-   All Services: Provider Factors
-========================= */
+
 
 .provider-factors {
     overflow: hidden;
@@ -546,9 +536,7 @@
     color: var(--text-soft-light);
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 1180px) {
     .provider-factors__grid {
@@ -657,9 +645,7 @@
     }
 }
 
-/* =========================
-   Services Overview Photo Height Fix
-========================= */
+
 
 .services-overview__layout {
     display: grid;
@@ -685,7 +671,7 @@
     object-fit: cover;
 }
 
-/* tablet */
+
 @media (max-width: 980px) {
     .services-overview__layout {
         grid-template-columns: 1fr;
@@ -700,7 +686,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 640px) {
     .services-overview__photo.aspect-square {
         min-height: 340px;
@@ -711,9 +697,7 @@
     }
 }
 
-/* =========================
-   All Services: Quote Flow Accordion Slideshow — Fixed
-========================= */
+
 
 .quote-flow {
     overflow: hidden;
@@ -821,7 +805,7 @@
     transform: rotate(45deg);
 }
 
-/* fixed accordion body */
+
 .quote-flow__body {
     max-height: 0;
     overflow: hidden;
@@ -939,7 +923,7 @@
     color: var(--text-soft-light);
 }
 
-/* tablet */
+
 @media (max-width: 1080px) {
 
     .quote-flow__layout,
@@ -957,7 +941,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 640px) {
     .quote-flow__trigger {
         grid-template-columns: 38px 1fr 24px;

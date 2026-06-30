@@ -1,6 +1,4 @@
-/* =========================
-   Homepage: Quick Needs
-========================= */
+
 
 .quick-needs {
     overflow: hidden;
@@ -161,9 +159,7 @@
     background: var(--color-off-white);
 }
 
-/* =========================
-   Homepage: Platform Overview
-========================= */
+
 
 .platform-overview__layout {
     display: grid;
@@ -213,9 +209,7 @@
     min-height: 440px;
 }
 
-/* =========================
-   Homepage: Popular Categories
-========================= */
+
 
 .popular-categories {
     overflow: hidden;
@@ -280,9 +274,7 @@
     margin-top: 28px;
 }
 
-/* =========================
-   Homepage: Matching Process
-========================= */
+
 
 .matching-process {
     overflow: hidden;
@@ -416,9 +408,7 @@
     color: rgba(255, 255, 255, 0.12);
 }
 
-/* =========================
-   Homepage: Situation Selector
-========================= */
+
 
 .situation-selector {
     overflow: hidden;
@@ -553,9 +543,7 @@
     opacity: 0.35;
 }
 
-/* =========================
-   Homepage: Compare Section
-========================= */
+
 
 .compare-section__grid {
     display: grid;
@@ -643,9 +631,7 @@
 
 
 
-/* =========================
-   Homepage: Transparency
-========================= */
+
 
 .transparency {
     padding-bottom: 0;
@@ -783,9 +769,7 @@
     color: var(--text-soft-light);
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 1180px) {
     .quick-needs__grid {
@@ -958,9 +942,7 @@
     }
 }
 
-/* =========================
-   Home Hero Heading Fix
-========================= */
+
 
 .shared-hero[data-shared-hero="home"] h1 {
     max-width: none;
@@ -990,9 +972,7 @@
     }
 }
 
-/* =========================
-   Homepage: Materials & Style
-========================= */
+
 
 .materials-style {
     position: relative;
@@ -1230,7 +1210,7 @@
     border-right: 0;
 }
 
-/* responsive */
+
 @media (max-width: 980px) {
     .materials-style {
         min-height: auto;
@@ -1313,9 +1293,7 @@
     }
 }
 
-/* =========================
-   Homepage: Interactive Exterior Decision Rail
-========================= */
+
 
 .exterior-decision {
     position: relative;
@@ -1379,7 +1357,7 @@
     transition: grid-template-columns 420ms ease;
 }
 
-/* интерактивное расширение сегмента */
+
 @supports selector(.exterior-decision__grid:has(.exterior-choice:hover)) {
 
     .exterior-decision__grid:has(.exterior-choice--one:hover),
@@ -1545,7 +1523,7 @@
     transform: translateY(0);
 }
 
-/* mobile / tablet */
+
 @media (max-width: 980px) {
     .exterior-decision {
         min-height: auto;
@@ -1587,9 +1565,7 @@
     }
 }
 
-/* =========================
-   Softer Exterior Decision Rail Hovers
-========================= */
+
 
 .exterior-decision__bg {
     transition:
@@ -1606,7 +1582,7 @@
     transition: grid-template-columns 760ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* делаем расширение карточек мягче и меньше */
+
 @supports selector(.exterior-decision__grid:has(.exterior-choice:hover)) {
 
     .exterior-decision__grid:has(.exterior-choice--one:hover),
@@ -1668,7 +1644,7 @@
         color 460ms ease;
 }
 
-/* иконка двигается меньше */
+
 .exterior-choice:hover>svg,
 .exterior-choice:hover>i,
 .exterior-choice:focus-visible>svg,

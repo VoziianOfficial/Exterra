@@ -49,9 +49,7 @@
     --ease-long: 520ms ease;
 }
 
-/* =========================
-   Reset / Base
-========================= */
+
 
 *,
 *::before,
@@ -128,9 +126,7 @@ button {
     display: none !important;
 }
 
-/* =========================
-   Typography
-========================= */
+
 
 h1,
 h2,
@@ -211,9 +207,7 @@ strong {
     color: var(--text-soft-light);
 }
 
-/* =========================
-   Layout Helpers
-========================= */
+
 
 .skip-link {
     position: fixed;
@@ -417,9 +411,7 @@ strong {
     aspect-ratio: 21 / 8;
 }
 
-/* =========================
-   Buttons
-========================= */
+
 
 .btn {
     position: relative;
@@ -553,9 +545,7 @@ strong {
     gap: 12px;
 }
 
-/* =========================
-   Header / Navigation
-========================= */
+
 
 .pre-header {
     position: relative;
@@ -798,9 +788,7 @@ strong {
     display: none;
 }
 
-/* =========================
-   Mobile Menu
-========================= */
+
 
 .mobile-menu {
     position: fixed;
@@ -935,9 +923,7 @@ strong {
     border-top: 1px solid var(--border-dark);
 }
 
-/* =========================
-   Shared Hero
-========================= */
+
 
 .shared-hero {
     position: relative;
@@ -1060,9 +1046,7 @@ strong {
     }
 }
 
-/* =========================
-   Post-Hero Icon Strip
-========================= */
+
 
 .icon-strip {
     position: relative;
@@ -1168,9 +1152,7 @@ strong {
     color: var(--color-orange-hover);
 }
 
-/* =========================
-   Shared Cards
-========================= */
+
 
 .color-card {
     position: relative;
@@ -1268,9 +1250,7 @@ strong {
     color: var(--text-soft-light);
 }
 
-/* =========================
-   Forms
-========================= */
+
 
 .form {
     display: grid;
@@ -1366,9 +1346,7 @@ strong {
     pointer-events: none;
 }
 
-/* =========================
-   Shared FAQ
-========================= */
+
 
 .faq-section {
     background: var(--color-off-white);
@@ -1493,9 +1471,7 @@ strong {
     color: var(--text-muted);
 }
 
-/* =========================
-   Shared CTA
-========================= */
+
 
 .global-cta {
     background: var(--color-paper);
@@ -1606,9 +1582,7 @@ strong {
     }
 }
 
-/* =========================
-   Footer
-========================= */
+
 
 .site-footer {
     background: var(--color-black);
@@ -1687,9 +1661,7 @@ strong {
     font-size: 0.86rem;
 }
 
-/* =========================
-   Cookie Banner
-========================= */
+
 
 .cookie-banner {
     position: fixed;
@@ -1734,9 +1706,7 @@ strong {
     gap: 10px;
 }
 
-/* =========================
-   Utilities
-========================= */
+
 
 .sr-only {
     position: absolute;
@@ -1761,9 +1731,7 @@ strong {
     stroke-width: 1.8;
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 1180px) {
     .site-header__inner {
@@ -2052,9 +2020,7 @@ strong {
     }
 }
 
-/* =========================
-   Reduced Motion
-========================= */
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2072,24 +2038,22 @@ strong {
     }
 }
 
-/* =========================
-   Sticky Header Fix
-========================= */
 
-/* overflow-x: hidden иногда ломает sticky у вложенных элементов */
+
+
 html,
 body {
     overflow-x: clip;
 }
 
-/* весь header-блок становится sticky: pre-header + main header */
+
 [data-site-header] {
     position: sticky;
     top: 0;
     z-index: 80;
 }
 
-/* внутри sticky wrapper уже не нужен второй sticky */
+
 .pre-header {
     position: relative;
     z-index: 2;
@@ -2101,12 +2065,12 @@ body {
     z-index: 3;
 }
 
-/* mobile menu должен быть выше sticky header */
+
 .mobile-menu {
     z-index: 90;
 }
 
-/* fallback для старых браузеров */
+
 @supports not (overflow: clip) {
 
     html,

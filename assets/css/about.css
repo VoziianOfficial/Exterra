@@ -1,6 +1,4 @@
-/* =========================
-   About: Why Exterra Exists
-========================= */
+
 
 .about-exists {
     overflow: hidden;
@@ -85,9 +83,7 @@
     transform: scale(1);
 }
 
-/* =========================
-   About: Platform Clarity
-========================= */
+
 
 .platform-clarity {
     overflow: hidden;
@@ -167,9 +163,7 @@
     color: var(--text-soft-light);
 }
 
-/* =========================
-   About: Platform Helps
-========================= */
+
 
 .platform-helps {
     overflow: hidden;
@@ -303,9 +297,7 @@
     color: rgba(255, 255, 255, 0.13);
 }
 
-/* =========================
-   About: Matching Values
-========================= */
+
 
 .matching-values {
     overflow: hidden;
@@ -514,9 +506,7 @@
     color: var(--text-muted);
 }
 
-/* =========================
-   About: Checklist
-========================= */
+
 
 .homeowner-checklist {
     overflow: hidden;
@@ -612,9 +602,7 @@
     text-transform: uppercase;
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 1180px) {
     .platform-helps__steps {
@@ -727,9 +715,7 @@
     }
 }
 
-/* =========================
-   Homeowner Checklist Photo Fix
-========================= */
+
 
 .homeowner-checklist__layout {
     display: grid;
@@ -744,7 +730,7 @@
     max-width: 560px;
     min-height: 540px;
     margin-left: -34px;
-    /* двигает фото левее */
+    
     border-radius: 34px;
     overflow: hidden;
 }
@@ -757,7 +743,7 @@
     display: block;
 }
 
-/* если хочешь еще чуть крупнее */
+
 @media (min-width: 1200px) {
     .homeowner-checklist__layout {
         grid-template-columns: minmax(500px, 1.02fr) minmax(0, 1fr);
@@ -774,7 +760,7 @@
     }
 }
 
-/* tablet */
+
 @media (max-width: 980px) {
     .homeowner-checklist__layout {
         grid-template-columns: 1fr;
@@ -791,7 +777,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 640px) {
     .homeowner-checklist__photo {
         min-height: 320px;
@@ -803,9 +789,7 @@
     }
 }
 
-/* =========================
-   About: Provider Conversation Map
-========================= */
+
 
 .conversation-map {
     overflow: hidden;
@@ -1042,15 +1026,13 @@
     }
 }
 
-/* =========================
-   Softer Conversation Map Hovers
-========================= */
+
 
 .conversation-map__rail {
     transition: grid-template-columns 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* делаем расширение меньше, чтобы карточки не дергались */
+
 @supports selector(.conversation-map__rail:has(.conversation-step:hover)) {
 
     .conversation-map__rail:has(.conversation-step--one:hover),
@@ -1081,7 +1063,7 @@
         transform 520ms ease;
 }
 
-/* убираем резкий сдвиг padding-left */
+
 .conversation-step:hover,
 .conversation-step:focus-visible {
     padding-left: clamp(22px, 3vw, 34px);
@@ -1109,7 +1091,7 @@
         color 420ms ease;
 }
 
-/* иконка двигается меньше */
+
 .conversation-step:hover>svg,
 .conversation-step:hover>i,
 .conversation-step:focus-visible>svg,

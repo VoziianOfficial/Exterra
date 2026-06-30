@@ -14,26 +14,7 @@ $responseError = [
     'message' => 'Please check the required fields and try again.'
 ];
 
-/*
-|--------------------------------------------------------------------------
-| Exterra Contact Form Backend
-|--------------------------------------------------------------------------
-| Requires a PHP server.
-| Local test:
-| php -S localhost:8000
-|
-| Example curl test:
-| curl -X POST http://localhost:8000/contact.php \
-|   -F "fullName=Jane Homeowner" \
-|   -F "email=jane@example.com" \
-|   -F "phone=555-123-4567" \
-|   -F "service=Siding Replacement" \
-|   -F "message=I want to compare local provider options for siding replacement." \
-|   -F "sourcePage=contact.html" \
-|   -F "privacyConsent=yes" \
-|   -F "formStartedAt=1710000000000"
-|--------------------------------------------------------------------------
-*/
+
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -112,13 +93,7 @@ if ($privacyConsent !== 'yes') {
     fail($responseError);
 }
 
-/*
-|--------------------------------------------------------------------------
-| Optional timing anti-spam
-|--------------------------------------------------------------------------
-| If the frontend sends formStartedAt, reject submissions that happen too fast.
-|--------------------------------------------------------------------------
-*/
+
 
 if ($formStartedAt !== '' && ctype_digit($formStartedAt)) {
     $startedSeconds = ((int) $formStartedAt) / 1000;
@@ -129,13 +104,7 @@ if ($formStartedAt !== '' && ctype_digit($formStartedAt)) {
     }
 }
 
-/*
-|--------------------------------------------------------------------------
-| Recipient
-|--------------------------------------------------------------------------
-| Replace this with the real company inbox before launch.
-|--------------------------------------------------------------------------
-*/
+
 
 $recipientEmail = 'support@exterra.example';
 $recipientName = 'Exterra Request Desk';
@@ -184,15 +153,7 @@ $headersString = implode("\r\n", $headers);
 $mailSent = @mail($recipientEmail, $subject, $emailBody, $headersString);
 
 if (!$mailSent) {
-    /*
-    |--------------------------------------------------------------------------
-    | Local/dev fallback
-    |--------------------------------------------------------------------------
-    | Some local PHP environments do not have mail() configured.
-    | This writes submissions to a local log file so curl/local testing
-    | can still confirm the backend receives real requests.
-    |--------------------------------------------------------------------------
-    */
+    
 
     $logDir = __DIR__ . '/form-submissions';
 

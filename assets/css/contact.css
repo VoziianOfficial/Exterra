@@ -1,6 +1,4 @@
-/* =========================
-   Contact: Info Cards
-========================= */
+
 
 .contact-details {
     overflow: hidden;
@@ -123,9 +121,7 @@
     color: var(--text-soft-light);
 }
 
-/* =========================
-   Contact: Request Form
-========================= */
+
 
 .request-section {
     position: relative;
@@ -259,9 +255,7 @@
     color: var(--text-soft-light);
 }
 
-/* =========================
-   Contact: Message Tips
-========================= */
+
 
 .message-tips {
     position: relative;
@@ -318,9 +312,7 @@
     text-transform: uppercase;
 }
 
-/* =========================
-   Contact: Popular Services Slider
-========================= */
+
 
 .contact-services {
     overflow: hidden;
@@ -457,9 +449,7 @@
     height: 20px;
 }
 
-/* =========================
-   Responsive
-========================= */
+
 
 @media (max-width: 1180px) {
     .contact-details__grid {
