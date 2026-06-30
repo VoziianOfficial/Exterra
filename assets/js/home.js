@@ -12,9 +12,9 @@
                 'A replacement-focused request can help organize details about the age of the exterior, visible wear, material preferences, removal expectations, trim questions, and timing. Exterra helps homeowners start with clear information so provider conversations are easier to compare.',
             linkText: 'Explore Siding Replacement',
             linkUrl: 'siding-replacement.html',
-            imageOne: 'assets/images/card-1.jpg',
+            imageOne: 'assets/images/card-4.jpg',
             imageOneAlt: 'Siding replacement exterior detail',
-            imageTwo: 'assets/images/card-4.jpg',
+            imageTwo: 'assets/images/card-1.jpg',
             imageTwoAlt: 'Modern home siding comparison detail'
         },
 
@@ -182,4 +182,3 @@
         initHome();
     }
 })();
-
