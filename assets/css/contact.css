@@ -235,7 +235,6 @@
     position: relative;
     min-height: 92px;
     display: grid;
-    grid-template-columns: 62px 1fr;
     gap: 18px;
     align-items: start;
     padding: 20px 0;
@@ -498,7 +497,15 @@
     }
 
     .message-tips__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(160px, 1fr);
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .message-tips__grid::-webkit-scrollbar {
+        display: none;
     }
 
     .popular-service-slider,
@@ -521,14 +528,6 @@
     .request-info-card {
         padding: 22px;
         border-radius: 24px 14px 24px 14px;
-    }
-
-    .request-info-card__steps div {
-        grid-template-columns: 48px 1fr;
-    }
-
-    .message-tips__grid {
-        grid-template-columns: 1fr;
     }
 
     .message-tips article {
