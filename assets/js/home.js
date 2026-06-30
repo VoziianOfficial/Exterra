@@ -12,9 +12,9 @@
                 'A replacement-focused request can help organize details about the age of the exterior, visible wear, material preferences, removal expectations, trim questions, and timing. Exterra helps homeowners start with clear information so provider conversations are easier to compare.',
             linkText: 'Explore Siding Replacement',
             linkUrl: 'siding-replacement.html',
-            imageOne: 'assets/images/service-2.jpg',
+            imageOne: 'assets/images/card-1.jpg',
             imageOneAlt: 'Siding replacement exterior detail',
-            imageTwo: 'assets/images/about-2.jpg',
+            imageTwo: 'assets/images/card-4.jpg',
             imageTwoAlt: 'Modern home siding comparison detail'
         },
 
@@ -25,9 +25,9 @@
                 'A storm-related siding request can include visible impact, loosened panels, cracks, moisture concerns, missing trim, or sections that need provider review. Exterra helps frame the request so available providers may discuss repair scope, timing, and next steps directly with you.',
             linkText: 'Explore Siding Repair',
             linkUrl: 'siding-repair.html',
-            imageOne: 'assets/images/service-3.jpg',
+            imageOne: 'assets/images/card-2.jpg',
             imageOneAlt: 'Siding repair detail after exterior damage',
-            imageTwo: 'assets/images/hero-service.jpg',
+            imageTwo: 'assets/images/card-3.jpg',
             imageTwoAlt: 'Home exterior siding area after weather exposure'
         },
 
@@ -40,7 +40,7 @@
             linkUrl: 'siding-installation.html',
             imageOne: 'assets/images/service-1.jpg',
             imageOneAlt: 'Modern siding installation style on a home exterior',
-            imageTwo: 'assets/images/about-3.jpg',
+            imageTwo: 'assets/images/service-3.jpg',
             imageTwoAlt: 'Clean home facade with updated siding style'
         },
 
