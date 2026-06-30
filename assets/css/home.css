@@ -443,7 +443,6 @@
 }
 
 .situation-btn {
-    min-height: 124px;
     display: grid;
     place-items: center;
     gap: 9px;

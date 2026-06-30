@@ -209,9 +209,150 @@
         });
     };
 
+    const flowData = {
+        scope: {
+            number: '01',
+            title: 'Project scope',
+            text: 'Compare included work, exclusions, assumptions, and possible changes before continuing.',
+            image: 'assets/images/service-2.jpg',
+            alt: 'Siding project scope review'
+        },
+
+        materials: {
+            number: '02',
+            title: 'Materials and finish',
+            text: 'Review siding type, color, trim, finish, availability, and maintenance expectations.',
+            image: 'assets/images/service-5.jpg',
+            alt: 'Siding materials and finish review'
+        },
+
+        removal: {
+            number: '03',
+            title: 'Removal and prep',
+            text: 'Ask about old siding removal, disposal, surface preparation, access needs, and cleanup.',
+            image: 'assets/images/service-3.jpg',
+            alt: 'Siding removal and preparation review'
+        },
+
+        timeline: {
+            number: '04',
+            title: 'Timeline and availability',
+            text: 'Compare estimated start window, provider availability, response timing, and project duration.',
+            image: 'assets/images/service-1.jpg',
+            alt: 'Siding project timeline review'
+        },
+
+        warranty: {
+            number: '05',
+            title: 'Warranty terms',
+            text: 'Review provider-supplied warranty details, exclusions, duration, and responsibility.',
+            image: 'assets/images/service-6.jpg',
+            alt: 'Siding warranty terms review'
+        },
+
+        credentials: {
+            number: '06',
+            title: 'Credentials and terms',
+            text: 'Verify licensing, insurance, permits, documentation, and final agreement terms.',
+            image: 'assets/images/cta.jpg',
+            alt: 'Siding provider credentials review'
+        }
+    };
+
+    const initQuoteFlow = () => {
+        const root = qs('[data-quote-flow]');
+        if (!root) return;
+
+        const items = qsa('[data-quote-flow-item]', root);
+        const visual = qs('.quote-flow__visual', root);
+        const image = qs('[data-quote-flow-image]', root);
+        const number = qs('[data-quote-flow-number]', root);
+        const title = qs('[data-quote-flow-title]', root);
+        const text = qs('[data-quote-flow-text]', root);
+
+        if (!items.length || !visual || !image || !number || !title || !text) return;
+
+        let activeKey = items.find((item) => item.classList.contains('is-active'))?.dataset.quoteFlowItem || null;
+
+        const updateActiveState = (key) => {
+            items.forEach((item) => {
+                const isActive = item.dataset.quoteFlowItem === key;
+                const trigger = qs('.quote-flow__trigger', item);
+
+                item.classList.toggle('is-active', isActive);
+
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                }
+            });
+        };
+
+        const closeAll = () => {
+            activeKey = null;
+
+            items.forEach((item) => {
+                const trigger = qs('.quote-flow__trigger', item);
+
+                item.classList.remove('is-active');
+
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        };
+
+        const setActive = (key) => {
+            const data = flowData[key];
+            if (!data) return;
+
+            /* если нажали на уже открытую строку — закрываем */
+            if (key === activeKey) {
+                closeAll();
+                return;
+            }
+
+            activeKey = key;
+            updateActiveState(key);
+
+            visual.classList.add('is-changing');
+
+            window.setTimeout(() => {
+                image.src = data.image;
+                image.alt = data.alt;
+                number.textContent = data.number;
+                title.textContent = data.title;
+                text.textContent = data.text;
+
+                visual.classList.remove('is-changing');
+
+                if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshIcons === 'function') {
+                    window.ExterraGlobal.refreshIcons();
+                }
+
+                if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshAOS === 'function') {
+                    window.ExterraGlobal.refreshAOS();
+                }
+            }, 180);
+        };
+
+        updateActiveState(activeKey);
+
+        items.forEach((item) => {
+            const trigger = qs('.quote-flow__trigger', item);
+            if (!trigger) return;
+
+            trigger.setAttribute('aria-expanded', item.classList.contains('is-active') ? 'true' : 'false');
+
+            trigger.addEventListener('click', () => {
+                setActive(item.dataset.quoteFlowItem);
+            });
+        });
+    };
+
     const initAllServices = () => {
         initServicesSlider();
         initServiceExplorer();
+        initQuoteFlow();
 
         if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshIcons === 'function') {
             window.ExterraGlobal.refreshIcons();
