@@ -993,6 +993,7 @@
 
     .conversation-map__rail {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        transition: none;
     }
 
     .conversation-step {
@@ -1006,6 +1007,23 @@
     .conversation-step:nth-child(3),
     .conversation-step:nth-child(4) {
         border-bottom: 0;
+    }
+
+    .conversation-step,
+    .conversation-step:hover,
+    .conversation-step:focus-visible {
+        transform: none;
+    }
+
+    .conversation-step:hover .conversation-step__content,
+    .conversation-step:focus-visible .conversation-step__content,
+    .conversation-step:hover .conversation-step__number,
+    .conversation-step:focus-visible .conversation-step__number,
+    .conversation-step:hover > svg,
+    .conversation-step:hover > i,
+    .conversation-step:focus-visible > svg,
+    .conversation-step:focus-visible > i {
+        transform: none;
     }
 }
 
@@ -1023,6 +1041,42 @@
 
     .conversation-step:last-child {
         border-bottom: 0;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .conversation-map__rail {
+        transition: none;
+    }
+
+    .conversation-step,
+    .conversation-step:hover,
+    .conversation-step:focus-visible {
+        padding-left: clamp(22px, 3vw, 34px);
+        transform: none;
+    }
+
+    .conversation-step:hover::before,
+    .conversation-step:focus-visible::before {
+        opacity: 0;
+    }
+
+    .conversation-step:hover::after,
+    .conversation-step:focus-visible::after {
+        transform: scaleX(0.22);
+    }
+
+    .conversation-step:hover .conversation-step__number,
+    .conversation-step:focus-visible .conversation-step__number,
+    .conversation-step:hover .conversation-step__content,
+    .conversation-step:focus-visible .conversation-step__content,
+    .conversation-step:hover .conversation-step__content span,
+    .conversation-step:focus-visible .conversation-step__content span,
+    .conversation-step:hover > svg,
+    .conversation-step:hover > i,
+    .conversation-step:focus-visible > svg,
+    .conversation-step:focus-visible > i {
+        transform: none;
     }
 }
 

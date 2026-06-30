@@ -1547,6 +1547,27 @@
         opacity: 1;
         transform: none;
     }
+
+    .exterior-decision__grid {
+        transition: none;
+    }
+
+    .exterior-choice,
+    .exterior-choice:hover,
+    .exterior-choice:focus-visible {
+        transform: none;
+    }
+
+    .exterior-choice:hover .exterior-choice__body,
+    .exterior-choice:focus-visible .exterior-choice__body,
+    .exterior-choice:hover .exterior-choice__number,
+    .exterior-choice:focus-visible .exterior-choice__number,
+    .exterior-choice:hover > svg,
+    .exterior-choice:hover > i,
+    .exterior-choice:focus-visible > svg,
+    .exterior-choice:focus-visible > i {
+        transform: none;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1562,6 +1583,48 @@
     .exterior-choice:last-child {
         border-right: 0;
         border-bottom: 0;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .exterior-decision:hover .exterior-decision__bg {
+        transform: scale(1.04);
+        filter: none;
+    }
+
+    .exterior-decision__grid {
+        transition: none;
+    }
+
+    .exterior-choice,
+    .exterior-choice:hover,
+    .exterior-choice:focus-visible {
+        transform: none;
+    }
+
+    .exterior-choice:hover::after,
+    .exterior-choice:focus-visible::after {
+        transform: scaleX(0.22);
+    }
+
+    .exterior-choice:hover::before,
+    .exterior-choice:focus-visible::before {
+        opacity: 0;
+    }
+
+    .exterior-choice:hover .exterior-choice__number,
+    .exterior-choice:focus-visible .exterior-choice__number,
+    .exterior-choice:hover .exterior-choice__body,
+    .exterior-choice:focus-visible .exterior-choice__body,
+    .exterior-choice:hover .exterior-choice__body span,
+    .exterior-choice:focus-visible .exterior-choice__body span,
+    .exterior-choice:hover .exterior-choice__body em,
+    .exterior-choice:focus-visible .exterior-choice__body em,
+    .exterior-choice:hover > svg,
+    .exterior-choice:hover > i,
+    .exterior-choice:focus-visible > svg,
+    .exterior-choice:focus-visible > i {
+        transform: none;
     }
 }
 
