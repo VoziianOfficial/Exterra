@@ -2058,3 +2058,46 @@ strong {
         animation: none;
     }
 }
+
+/* =========================
+   Sticky Header Fix
+========================= */
+
+/* overflow-x: hidden иногда ломает sticky у вложенных элементов */
+html,
+body {
+    overflow-x: clip;
+}
+
+/* весь header-блок становится sticky: pre-header + main header */
+[data-site-header] {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+}
+
+/* внутри sticky wrapper уже не нужен второй sticky */
+.pre-header {
+    position: relative;
+    z-index: 2;
+}
+
+.site-header {
+    position: relative;
+    top: auto;
+    z-index: 3;
+}
+
+/* mobile menu должен быть выше sticky header */
+.mobile-menu {
+    z-index: 90;
+}
+
+/* fallback для старых браузеров */
+@supports not (overflow: clip) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+}
