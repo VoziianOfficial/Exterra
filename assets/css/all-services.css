@@ -345,7 +345,6 @@
 }
 
 .explorer-btn {
-    min-height: 132px;
     display: grid;
     place-items: center;
     gap: 9px;
