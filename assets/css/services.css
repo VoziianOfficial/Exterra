@@ -831,16 +831,20 @@
 
 @media (max-width: 560px) {
     .service-count-strip__stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .service-count-strip__stats span {
         min-height: 132px;
-        border-right: 0;
-        border-bottom: 1px solid var(--border-light);
+        border-right: 1px solid var(--border-light);
     }
 
-    .service-count-strip__stats span:last-child {
+    .service-count-strip__stats span:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .service-count-strip__stats span:nth-child(3),
+    .service-count-strip__stats span:nth-child(4) {
         border-bottom: 0;
     }
 

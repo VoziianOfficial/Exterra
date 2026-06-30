@@ -588,6 +588,10 @@
         grid-template-columns: 1fr;
     }
 
+    .project-compare-card::after {
+        display: none;
+    }
+
     .project-compare-card,
     .factor-card {
         min-height: 240px;
