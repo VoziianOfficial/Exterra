@@ -1085,6 +1085,10 @@ strong {
     gap: 0;
 }
 
+.icon-strip--services .icon-strip__inner {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
 .icon-strip__item {
     position: relative;
     min-height: 116px;
@@ -1782,6 +1786,10 @@ strong {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .icon-strip--services .icon-strip__inner {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
     .grid-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1940,6 +1948,10 @@ strong {
         grid-auto-columns: minmax(138px, 1fr);
         overflow-x: auto;
         scrollbar-width: none;
+    }
+
+    .icon-strip--services .icon-strip__inner {
+        grid-template-columns: none;
     }
 
     .icon-strip__inner::-webkit-scrollbar {

@@ -483,7 +483,7 @@
             const tone = mount.dataset.tone || 'dark';
             const items = cfg.iconStrips[type] || cfg.iconStrips.home || [];
 
-            mount.className = `icon-strip${tone === 'light' ? ' icon-strip--light' : ''}`;
+            mount.className = `icon-strip icon-strip--${type}${tone === 'light' ? ' icon-strip--light' : ''}`;
 
             mount.innerHTML = `
         <div class="container-wide">

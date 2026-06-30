@@ -262,8 +262,7 @@ window.EXTERRA_CONFIG = {
             { label: 'Vinyl', href: 'vinyl-siding.html', icon: 'layers' },
             { label: 'Fiber Cement', href: 'fiber-cement-siding.html', icon: 'blocks' },
             { label: 'Wood', href: 'wood-composite-siding.html', icon: 'tree-pine' },
-            { label: 'FAQ', href: '#faq', icon: 'circle-help' },
-            { label: 'Contact', href: '#global-cta', icon: 'send' }
+            { label: 'FAQ', href: '#faq', icon: 'circle-help' }
         ],
 
         contact: [
