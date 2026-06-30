@@ -1603,7 +1603,7 @@ strong {
 }
 
 .site-footer__brand .brand {
-    align-items: flex-start;
+    align-items: center;
 }
 
 .site-footer__text,
