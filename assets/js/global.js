@@ -204,37 +204,257 @@
     
 
     const injectConfigValues = () => {
+        const company = cfg.company || {};
+        const brand = cfg.brand || {};
+        const footer = cfg.footer || {};
+        const disclaimers = cfg.disclaimers || {};
+
+        const brandName = company.name || brand.name || 'Exterra';
+        const legalName = company.legalName || `${brandName} Provider Matching Platform`;
+        const companyId = company.companyId || '';
+        const address = company.address || '';
+        const serviceArea = company.serviceArea || '';
+        const phoneRaw = company.phoneRaw || '';
+        const phoneDisplay = company.phoneDisplay || phoneRaw;
+        const phoneButtonText = company.phoneButtonText || `Call ${brandName}`;
+        const email = company.email || '';
+        const tagline = brand.tagline || '';
+        const currentYear = String(new Date().getFullYear());
+
+        const phoneHref = phoneRaw ? `tel:${phoneRaw.replace(/[^\d+]/g, '')}` : '#';
+        const emailHref = email ? `mailto:${email}` : '#';
+
+        const defaultTextMap = {
+            'Exterra Provider Matching Platform': legalName,
+            'Exterra': brandName,
+            'Update company ID before launch': companyId,
+            'Update business address before launch': address,
+            'Selected local service areas': serviceArea,
+            '+1 (800) 555-0142': phoneDisplay,
+            '+18005550142': phoneRaw,
+            'support@exterra.example': email,
+            'Call Exterra': phoneButtonText,
+            'Email Exterra': `Email ${brandName}`,
+            'Independent siding provider matching': tagline
+        };
+
+        const getConfigValue = (path, fallback = '') => {
+            const aliases = {
+                'company.name': brandName,
+                'brand.name': brandName,
+                'company.legalName': legalName,
+                'company.companyId': companyId,
+                'company.address': address,
+                'company.serviceArea': serviceArea,
+                'company.phoneRaw': phoneRaw,
+                'company.phoneDisplay': phoneDisplay,
+                'company.phoneButtonText': phoneButtonText,
+                'company.email': email,
+                'brand.tagline': tagline,
+                'footer.description': footer.description || '',
+                'footer.copyright': footer.copyright || `© ${currentYear} ${brandName}. All rights reserved.`,
+                'disclaimers.short': disclaimers.short || '',
+                'disclaimers.footer': disclaimers.footer || '',
+                'currentYear': currentYear
+            };
+
+            if (Object.prototype.hasOwnProperty.call(aliases, path)) {
+                return aliases[path];
+            }
+
+            return getValue(path, fallback);
+        };
+
+        const setNodeValue = (node, value) => {
+            if (!node || value === undefined || value === null) return;
+
+            const tagName = node.tagName?.toLowerCase();
+
+            if (tagName === 'input' || tagName === 'textarea' || tagName === 'select') {
+                node.value = String(value);
+                return;
+            }
+
+            node.textContent = String(value);
+        };
+
+        const normalizeHrefValue = (path, value) => {
+            if (!value) return '#';
+
+            if (path.includes('email')) {
+                return `mailto:${value}`;
+            }
+
+            if (path.includes('phoneRaw') || path.includes('phoneDisplay') || path.includes('phone')) {
+                return `tel:${String(value).replace(/[^\d+]/g, '')}`;
+            }
+
+            return value;
+        };
+
+        const replaceKnownText = (value) => {
+            if (!value) return value;
+
+            let output = String(value);
+
+            Object.entries(defaultTextMap)
+                .filter(([oldValue, newValue]) => oldValue && newValue && oldValue !== newValue)
+                .sort((a, b) => b[0].length - a[0].length)
+                .forEach(([oldValue, newValue]) => {
+                    output = output.split(oldValue).join(newValue);
+                });
+
+            return output;
+        };
+
+  
         qsa('[data-config]').forEach((node) => {
-            const value = getValue(node.dataset.config, '');
-            node.textContent = value;
+            const value = getConfigValue(node.dataset.config, '');
+            setNodeValue(node, value);
         });
 
+      
         qsa('[data-config-href]').forEach((node) => {
-            const value = getValue(node.dataset.configHref, '');
-            if (value) node.setAttribute('href', value);
-        });
+            const path = node.dataset.configHref;
+            const value = getConfigValue(path, '');
 
-        qsa('[data-phone-link]').forEach((node) => {
-            node.setAttribute('href', `tel:${cfg.company.phoneRaw}`);
-            if (!node.dataset.keepText) {
-                node.textContent = cfg.company.phoneDisplay;
+            if (value) {
+                node.setAttribute('href', normalizeHrefValue(path, value));
             }
         });
 
-        qsa('[data-email-link]').forEach((node) => {
-            node.setAttribute('href', `mailto:${cfg.company.email}`);
-            if (!node.dataset.keepText) {
-                node.textContent = cfg.company.email;
+       
+        qsa('[data-config-attr]').forEach((node) => {
+            const rules = node.dataset.configAttr
+                .split(',')
+                .map((item) => item.trim())
+                .filter(Boolean);
+
+            rules.forEach((rule) => {
+                const [attr, path] = rule.split(':').map((part) => part.trim());
+                if (!attr || !path) return;
+
+                const value = getConfigValue(path, '');
+                if (value) node.setAttribute(attr, value);
+            });
+        });
+
+    
+        qsa('[data-phone-link], a[href^="tel:"]').forEach((node) => {
+            node.setAttribute('href', phoneHref);
+
+            const currentText = node.textContent.trim();
+            const isIconOnly = node.dataset.keepText === 'true' || node.querySelector('svg, i');
+            const looksLikeButtonText = /call|start|request/i.test(currentText) && !/\d/.test(currentText);
+
+            if (!isIconOnly) {
+                node.textContent = looksLikeButtonText ? phoneButtonText : phoneDisplay;
+            }
+
+            if (!node.getAttribute('aria-label')) {
+                node.setAttribute('aria-label', `Call ${brandName}`);
+            } else {
+                node.setAttribute('aria-label', replaceKnownText(node.getAttribute('aria-label')));
             }
         });
 
+       
+        qsa('[data-email-link], a[href^="mailto:"]').forEach((node) => {
+            node.setAttribute('href', emailHref);
+
+            const currentText = node.textContent.trim();
+            const isIconOnly = node.dataset.keepText === 'true' || node.querySelector('svg, i');
+            const looksLikeButtonText = /email|contact/i.test(currentText) && !currentText.includes('@');
+
+            if (!isIconOnly) {
+                node.textContent = looksLikeButtonText ? `Email ${brandName}` : email;
+            }
+
+            if (!node.getAttribute('aria-label')) {
+                node.setAttribute('aria-label', `Email ${brandName}`);
+            } else {
+                node.setAttribute('aria-label', replaceKnownText(node.getAttribute('aria-label')));
+            }
+        });
+
+    
         qsa('[data-current-year]').forEach((node) => {
-            node.textContent = String(new Date().getFullYear());
+            node.textContent = currentYear;
         });
 
+       
         qsa('[data-source-page]').forEach((node) => {
             node.value = currentPage;
         });
+
+  
+        document.title = replaceKnownText(document.title);
+
+        qsa('meta[content]').forEach((meta) => {
+            meta.setAttribute('content', replaceKnownText(meta.getAttribute('content')));
+        });
+
+       
+        const ignoredTags = new Set([
+            'SCRIPT',
+            'STYLE',
+            'NOSCRIPT',
+            'TEMPLATE',
+            'SVG'
+        ]);
+
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+                    if (!parent) return NodeFilter.FILTER_REJECT;
+                    if (ignoredTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                    if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const textNodes = [];
+
+        while (walker.nextNode()) {
+            textNodes.push(walker.currentNode);
+        }
+
+        textNodes.forEach((node) => {
+            node.nodeValue = replaceKnownText(node.nodeValue);
+        });
+
+       
+        const attrsToUpdate = ['aria-label', 'title', 'alt', 'placeholder'];
+
+        qsa('*').forEach((node) => {
+            attrsToUpdate.forEach((attr) => {
+                if (!node.hasAttribute(attr)) return;
+
+                node.setAttribute(attr, replaceKnownText(node.getAttribute(attr)));
+            });
+        });
+
+    
+        window.ExterraCompany = {
+            brandName,
+            legalName,
+            companyId,
+            address,
+            serviceArea,
+            phoneRaw,
+            phoneDisplay,
+            phoneHref,
+            phoneButtonText,
+            email,
+            emailHref,
+            tagline,
+            currentYear
+        };
     };
 
     

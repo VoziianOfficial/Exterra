@@ -9,6 +9,7 @@ window.EXTERRA_CONFIG = {
     },
 
     company: {
+        name: 'Exterra',
         legalName: 'Exterra Provider Matching Platform',
         companyId: 'Update company ID before launch',
         address: 'Update business address before launch',
