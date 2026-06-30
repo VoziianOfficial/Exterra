@@ -46,10 +46,6 @@
         if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshIcons === 'function') {
             window.ExterraGlobal.refreshIcons();
         }
-
-        if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshAOS === 'function') {
-            window.ExterraGlobal.refreshAOS();
-        }
     };
 
     if (document.readyState === 'loading') {

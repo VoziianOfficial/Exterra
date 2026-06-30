@@ -129,10 +129,6 @@
 
                 card.classList.remove('is-changing');
                 if (photosWrap) photosWrap.classList.remove('is-changing');
-
-                if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshAOS === 'function') {
-                    window.ExterraGlobal.refreshAOS();
-                }
             }, 180);
         };
 

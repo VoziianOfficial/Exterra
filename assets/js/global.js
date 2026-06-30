@@ -82,12 +82,123 @@
         }
     };
 
-    const refreshAOS = () => {
-        if (window.AOS && typeof window.AOS.refreshHard === 'function') {
-            window.AOS.refreshHard();
-        } else if (window.AOS && typeof window.AOS.refresh === 'function') {
-            window.AOS.refresh();
+    const REVEAL_EXCLUDED_PARENTS = [
+        '.pre-header',
+        '.site-header',
+        '.site-footer',
+        '.dropdown',
+        '.mobile-menu',
+        '[data-mobile-menu]',
+        '[data-cookie-banner]',
+        '.services-dropdown',
+        '.cookie-banner',
+        '.faq-answer',
+        '.quote-flow__body',
+        '[data-services-track]',
+        '.popular-service-slider__track',
+        '.service-slide:not(.is-active)',
+        '.popular-service-slide:not(.is-active)',
+        '[hidden]',
+        '[aria-hidden="true"]'
+    ].join(', ');
+    const REVEAL_MAP = [
+        {
+            selector: '.section-head, .shared-hero__content, .service-explorer__head, .quote-flow__head, .conversation-map__head, .legal-hero__content, .situation-selector__top, .exterior-decision__head, .faq-section__head, .request-form, .request-info-card, .service-count-strip__inner, .checklist-lines, .provider-discussion__points, .btn-row, .quote-flow__accordion, .faq-accordion, .global-cta__card, .conversation-map__rail, .service-meaning',
+            className: 'reveal reveal-up'
+        },
+        {
+            selector: '.services-overview__content > p:not(.section-kicker), .service-overview__content > p:not(.section-kicker), .platform-overview__content > p:not(.section-kicker), .full-services__content > p:not(.section-kicker), .provider-discussion__content > p:not(.section-kicker), .homeowner-checklist__content > p:not(.section-kicker), .request-form__disclaimer, .legal-document__intro p',
+            className: 'reveal reveal-soft'
+        },
+        {
+            selector: '.service-step-card, .factor-card, .project-compare-card, .value-card, .not-claim-card, .help-step, .process-card, .transparency-card, .contact-info-card, .clarity-column, .quick-need-card',
+            className: 'reveal reveal-card reveal-stagger',
+            stagger: true,
+            staggerStep: 80
+        },
+        {
+            selector: '.image-frame, .about-slideshow, .matching-values__photo, .homeowner-checklist__photo, .faq-photo, .quote-flow__visual, .popular-service-slider, .full-services__slider, .situation-selector__photos, .service-overview__photo, .services-overview__photo, .platform-overview__photo, .provider-discussion__photo, .provider-discussion__wide-photo',
+            className: 'reveal reveal-photo'
+        },
+        {
+            selector: '.service-count-strip__stats, .provider-discussion__content, .homeowner-checklist__content, .category-row, .compare-card, .materials-style__paths, .materials-style__style, .comparison-factors__columns > *, .service-explorer__panel',
+            className: 'reveal reveal-up'
         }
+    ];
+
+    const isReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobileRevealViewport = () => window.matchMedia('(max-width: 760px)').matches;
+
+    const canRevealNode = (node) => {
+        if (!node || node.classList.contains('reveal')) return false;
+        if (node.matches(REVEAL_EXCLUDED_PARENTS) || node.closest(REVEAL_EXCLUDED_PARENTS)) return false;
+        if (node.parentElement?.closest('.reveal')) return false;
+        if (window.getComputedStyle(node).position === 'fixed') return false;
+        return true;
+    };
+
+    const applyRevealClass = (node, className) => {
+        if (!canRevealNode(node)) return false;
+
+        className.split(' ').forEach((token) => {
+            if (token) node.classList.add(token);
+        });
+
+        return true;
+    };
+
+    const applyRevealMap = () => {
+        REVEAL_MAP.forEach((entry) => {
+            const groups = new Map();
+            const isMobile = isMobileRevealViewport();
+            const step = isMobile ? 0 : entry.staggerStep || 80;
+
+            qsa(entry.selector).forEach((node) => {
+                if (!applyRevealClass(node, entry.className)) return;
+
+                if (!entry.stagger) return;
+
+                const parent = node.parentElement;
+                const currentIndex = groups.get(parent) || 0;
+                const delay = Math.min(currentIndex * step, 240);
+
+                if (delay > 0) {
+                    node.style.transitionDelay = `${delay}ms`;
+                }
+
+                groups.set(parent, currentIndex + 1);
+            });
+        });
+    };
+
+    const setupRevealAnimations = () => {
+        applyRevealMap();
+
+        const revealNodes = qsa('.reveal');
+        if (!revealNodes.length) return;
+
+        if (isReducedMotion() || typeof window.IntersectionObserver !== 'function') {
+            revealNodes.forEach((node) => node.classList.add('is-visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries, currentObserver) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add('is-visible');
+                    currentObserver.unobserve(entry.target);
+                });
+            },
+            {
+                root: null,
+                threshold: 0.16,
+                rootMargin: '0px 0px -8% 0px'
+            }
+        );
+
+        revealNodes.forEach((node) => observer.observe(node));
     };
 
     
@@ -444,7 +555,7 @@
       <div class="shared-hero__inner">
         <div class="shared-hero__spacer" aria-hidden="true"></div>
 
-        <div class="shared-hero__content" data-aos="fade-left">
+        <div class="shared-hero__content">
           <p class="section-kicker">${escapeHtml(hero.kicker)}</p>
           <h1>${escapeHtml(hero.heading)}</h1>
           <p>${escapeHtml(hero.text)}</p>
@@ -563,18 +674,18 @@
 
             mount.innerHTML = `
         <div class="container">
-          <div class="faq-section__head" data-aos="fade-up">
+          <div class="faq-section__head">
             <div class="faq-section__title">
               <p class="section-kicker">${escapeHtml(heading)}</p>
             </div>
           </div>
 
           <div class="faq-section__layout">
-            <div class="faq-photo" data-aos="zoom-in">
+            <div class="faq-photo">
               <img src="${escapeHtml(image)}" alt="Siding exterior detail for Exterra questions" width="680" height="680" loading="lazy">
             </div>
 
-            <div class="faq-accordion" data-accordion data-aos="fade-left">
+            <div class="faq-accordion" data-accordion>
               ${items
                     .map((item, itemIndex) => {
                         const panelId = `faq-panel-${index}-${itemIndex}`;
@@ -662,7 +773,7 @@
 
             mount.innerHTML = `
         <div class="container-wide">
-          <div class="global-cta__card" data-aos="fade-up">
+          <div class="global-cta__card">
             <div class="global-cta__content">
               <h2>${escapeHtml(cta.heading)}</h2>
               <p>${escapeHtml(cta.text)}</p>
@@ -868,23 +979,6 @@
 
     
 
-    const initAOS = () => {
-        if (!window.AOS) return;
-
-        window.AOS.init({
-            duration: 760,
-            easing: 'ease-out-cubic',
-            once: true,
-            mirror: false,
-            offset: 80,
-            delay: 0,
-            anchorPlacement: 'top-bottom',
-            disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        });
-    };
-
-    
-
     const init = () => {
         renderHeader();
         renderMobileMenu();
@@ -896,6 +990,7 @@
         renderCookieBanner();
 
         injectConfigValues();
+        setupRevealAnimations();
 
         refreshIcons();
 
@@ -904,11 +999,6 @@
         initAccordions();
         initSmoothAnchors();
         initParallax();
-        initAOS();
-
-        window.addEventListener('load', () => {
-            refreshAOS();
-        });
     };
 
     if (document.readyState === 'loading') {
@@ -925,7 +1015,6 @@
         getValue,
         getCurrentPage,
         getServiceByPage,
-        refreshIcons,
-        refreshAOS
+        refreshIcons
     };
 })();

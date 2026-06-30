@@ -167,10 +167,6 @@
                 link.href = data.linkUrl;
 
                 panel.classList.remove('is-changing');
-
-                if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshAOS === 'function') {
-                    window.ExterraGlobal.refreshAOS();
-                }
             }, 180);
         };
 
@@ -328,10 +324,6 @@
                 if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshIcons === 'function') {
                     window.ExterraGlobal.refreshIcons();
                 }
-
-                if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshAOS === 'function') {
-                    window.ExterraGlobal.refreshAOS();
-                }
             }, 180);
         };
 
@@ -356,10 +348,6 @@
 
         if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshIcons === 'function') {
             window.ExterraGlobal.refreshIcons();
-        }
-
-        if (window.ExterraGlobal && typeof window.ExterraGlobal.refreshAOS === 'function') {
-            window.ExterraGlobal.refreshAOS();
         }
     };
 
