@@ -632,3 +632,101 @@
         height: 44px;
     }
 }
+
+/* =========================
+   Comparison Factors Fix
+========================= */
+
+/* строка списка — только прямой span внутри .comparison-list */
+.comparison-list>span {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-main);
+    transition:
+        color var(--ease),
+        padding-left var(--ease);
+}
+
+/* внутренний span с текстом — больше НЕ grid */
+.comparison-list>span>span {
+    min-height: 0;
+    display: block;
+    padding: 0;
+    border-bottom: 0;
+    color: inherit;
+}
+
+/* убираем hover-съезд у внутреннего span */
+.comparison-list>span>span:hover {
+    padding-left: 0;
+    color: inherit;
+}
+
+/* иконка фиксируется сверху и не лезет на текст */
+.comparison-list>span>svg,
+.comparison-list>span>i {
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    color: var(--color-orange);
+    flex: 0 0 auto;
+}
+
+/* hover только на всю строку */
+.comparison-list>span:hover {
+    color: var(--color-orange);
+    padding-left: 8px;
+}
+
+.comparison-list>span:hover small {
+    color: var(--text-muted);
+}
+
+.comparison-list strong {
+    display: block;
+    margin-bottom: 7px;
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.comparison-list small {
+    display: block;
+    max-width: 520px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+/* mobile */
+@media (max-width: 520px) {
+    .comparison-list>span {
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 12px;
+        padding: 18px 0;
+    }
+
+    .comparison-list>span>svg,
+    .comparison-list>span>i {
+        width: 21px;
+        height: 21px;
+    }
+
+    .comparison-list strong {
+        font-size: 0.9rem;
+        line-height: 1.1;
+    }
+
+    .comparison-list small {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+}
