@@ -726,3 +726,79 @@
         font-size: 0.9rem;
     }
 }
+
+/* =========================
+   Homeowner Checklist Photo Fix
+========================= */
+
+.homeowner-checklist__layout {
+    display: grid;
+    grid-template-columns: minmax(420px, 0.95fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+}
+
+.homeowner-checklist__photo {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    min-height: 540px;
+    margin-left: -34px;
+    /* двигает фото левее */
+    border-radius: 34px;
+    overflow: hidden;
+}
+
+.homeowner-checklist__photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 540px;
+    object-fit: cover;
+    display: block;
+}
+
+/* если хочешь еще чуть крупнее */
+@media (min-width: 1200px) {
+    .homeowner-checklist__layout {
+        grid-template-columns: minmax(500px, 1.02fr) minmax(0, 1fr);
+    }
+
+    .homeowner-checklist__photo {
+        max-width: 620px;
+        min-height: 590px;
+        margin-left: -52px;
+    }
+
+    .homeowner-checklist__photo img {
+        min-height: 590px;
+    }
+}
+
+/* tablet */
+@media (max-width: 980px) {
+    .homeowner-checklist__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .homeowner-checklist__photo {
+        max-width: 100%;
+        min-height: 420px;
+        margin-left: 0;
+    }
+
+    .homeowner-checklist__photo img {
+        min-height: 420px;
+    }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+    .homeowner-checklist__photo {
+        min-height: 320px;
+        border-radius: 24px 14px 24px 14px;
+    }
+
+    .homeowner-checklist__photo img {
+        min-height: 320px;
+    }
+}
