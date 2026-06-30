@@ -657,3 +657,57 @@
         height: 44px;
     }
 }
+
+/* =========================
+   Services Overview Photo Height Fix
+========================= */
+
+.services-overview__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.78fr);
+    gap: clamp(32px, 6vw, 82px);
+    align-items: stretch;
+}
+
+.services-overview__content {
+    align-self: center;
+}
+
+.services-overview__photo.aspect-square {
+    aspect-ratio: auto;
+    min-height: clamp(560px, 52vw, 720px);
+    height: 100%;
+}
+
+.services-overview__photo img {
+    width: 100%;
+    height: 100%;
+    min-height: clamp(560px, 52vw, 720px);
+    object-fit: cover;
+}
+
+/* tablet */
+@media (max-width: 980px) {
+    .services-overview__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .services-overview__photo.aspect-square {
+        min-height: 460px;
+    }
+
+    .services-overview__photo img {
+        min-height: 460px;
+    }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+    .services-overview__photo.aspect-square {
+        min-height: 340px;
+    }
+
+    .services-overview__photo img {
+        min-height: 340px;
+    }
+}
